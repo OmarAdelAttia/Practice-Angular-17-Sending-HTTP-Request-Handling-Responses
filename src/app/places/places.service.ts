@@ -17,7 +17,10 @@ export class PlacesService {
   loadedUserPlaces = this.userPlaces.asReadonly();
 
   loadAvailablePlaces() {
-    return this.fetchPlaces('http://localhost:3000/places', 'Something went wrong fetching the available places. Please try again later.');
+    return this.fetchPlaces(
+      'http://localhost:3000/places',
+      'Something went wrong fetching the available places. Please try again later.'
+    );
   }
 
   loadUserPlaces() {
@@ -77,7 +80,7 @@ export class PlacesService {
       .pipe(map(resData => resData.places),
         catchError(
           (err) => {
-            console.log(err)
+            // console.log(err);
             return throwError(
               () =>
                 new Error(errMsg)
